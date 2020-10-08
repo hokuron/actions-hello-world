@@ -2,8 +2,11 @@ name: Hello, World!
 on: push
 
 jobs:
-  build:
-    name: Greeting
+  action-test:
     runs-on: ubuntu-latest
+    name: Custom Action Text
     steps:
-      - run: echo "Hello, World!"
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Verify hello action works
+        uses: ./.github/actions/hello
